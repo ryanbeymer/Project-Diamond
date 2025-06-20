@@ -233,11 +233,10 @@ npx playwright test --debug tests/users/get-users.spec.js
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Add tests following the existing patterns
-4. Ensure all tests pass
-5. Submit a pull request
+1. Create a feature branch
+2. Add tests following the existing patterns
+3. Ensure all tests pass
+4. Submit a pull request
 
 ## Resources
 
