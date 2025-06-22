@@ -7,6 +7,7 @@ This project contains automated API tests for the [ReqRes](https://reqres.in/) A
 ## About ReqRes API
 
 ReqRes is a free online REST API that:
+
 - Provides fake JSON data for testing
 - Supports all standard HTTP methods (GET, POST, PUT, PATCH, DELETE)
 - Is CORS-enabled and returns JSON responses
@@ -26,17 +27,20 @@ Before running the tests, ensure you have the following installed:
 ## Installation
 
 1. Clone this repository:
+
 ```bash
 git clone <repository-url>
 cd reqres-playwright-tests
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Install Playwright browsers:
+
 ```bash
 npx playwright install
 ```
@@ -69,6 +73,7 @@ npx playwright install
 ## API Endpoints Covered
 
 ### Users
+
 - `GET /api/users` - List users (paginated)
 - `GET /api/users/{id}` - Get single user
 - `POST /api/users` - Create user
@@ -77,29 +82,35 @@ npx playwright install
 - `DELETE /api/users/{id}` - Delete user
 
 ### Authentication
+
 - `POST /api/register` - Register user
 - `POST /api/login` - Login user
 
 ### Resources
+
 - `GET /api/unknown` - List resources (colors)
 - `GET /api/unknown/{id}` - Get single resource
 
 ### Delayed Responses
+
 - `GET /api/users?delay=3` - Test delayed responses
 
 ## Test Categories
 
 ### Functional Tests
+
 - **CRUD Operations**: Testing Create, Read, Update, Delete operations for users
 - **Data Validation**: Verifying response schemas and data types
 - **Pagination**: Testing list endpoints with page parameters
 - **Error Handling**: Testing invalid requests and error responses
 
 ### Performance Tests
+
 - **Response Times**: Measuring API response times
 - **Delayed Responses**: Testing endpoints with intentional delays
 
 ### Negative Tests
+
 - **Invalid IDs**: Testing with non-existent user IDs
 - **Invalid Data**: Testing with malformed request bodies
 - **Missing Fields**: Testing required field validation
@@ -107,11 +118,13 @@ npx playwright install
 ## Running Tests
 
 ### Run all tests:
+
 ```bash
 npm test
 ```
 
 ### Run specific test suite:
+
 ```bash
 # Run user-related tests
 npx playwright test tests/users/
@@ -124,6 +137,7 @@ npx playwright test tests/users/get-users.spec.js
 ```
 
 ### Run tests with specific options:
+
 ```bash
 # Run tests in headed mode
 npx playwright test --headed
@@ -148,6 +162,7 @@ The tests are configured in `playwright.config.js` with the following settings:
 ## Sample Test Cases
 
 ### User Management Tests
+
 - Verify user list retrieval with pagination
 - Test single user retrieval by ID
 - Validate user creation with various data types
@@ -156,12 +171,14 @@ The tests are configured in `playwright.config.js` with the following settings:
 - Test non-existent user scenarios
 
 ### Authentication Tests
+
 - Test successful user registration
 - Test registration with missing fields
 - Test successful login
 - Test login with invalid credentials
 
 ### Data Validation Tests
+
 - Verify response status codes
 - Validate JSON response schemas
 - Test response headers
@@ -186,6 +203,7 @@ Test results are generated in multiple formats:
 - **Console Output**: Real-time test execution status
 
 To view the HTML report:
+
 ```bash
 npx playwright show-report
 ```
@@ -226,16 +244,68 @@ jobs:
 3. **Flaky Tests**: Use proper waits and retries
 
 ### Debug Mode
+
 Run tests in debug mode for step-by-step execution:
+
 ```bash
 npx playwright test --debug tests/users/get-users.spec.js
+```
+
+## Code Formatting
+
+This project uses [Prettier](https://prettier.io/) for consistent code formatting.
+
+### Available Scripts
+
+```bash
+# Format all files
+npm run format
+
+# Check formatting without making changes
+npm run format:check
+
+# Format only test files
+npm run format:tests
+```
+
+### Editor Integration
+
+The project includes VS Code settings (`.vscode/settings.json`) that will:
+
+- Automatically format files on save
+- Use Prettier as the default formatter
+- Format on paste
+
+### Pre-commit Hooks
+
+The project uses Husky and lint-staged to automatically format files before committing:
+
+- All staged `.js`, `.json`, and `.md` files are automatically formatted
+- Pre-commit hook ensures consistent formatting across the codebase
+
+### Configuration
+
+Prettier configuration is defined in `.prettierrc`:
+
+```json
+{
+  "semi": true,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "endOfLine": "lf"
+}
 ```
 
 ## Contributing
 
 1. Create a feature branch
 2. Add tests following the existing patterns
-3. Ensure all tests pass
+3. Ensure all tests pass and code is properly formatted
 4. Submit a pull request
 
 ## Resources

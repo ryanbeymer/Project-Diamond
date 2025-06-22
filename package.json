@@ -1,0 +1,42 @@
+{
+  "name": "reqres-playwright-tests",
+  "version": "1.0.0",
+  "description": "Automated API tests for ReqRes API using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:auth": "playwright test tests/auth/",
+    "test:users": "playwright test tests/users/",
+    "test:resources": "playwright test tests/resources/",
+    "install-browsers": "playwright install",
+    "report": "playwright show-report",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:tests": "prettier --write tests/",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "playwright",
+    "api-testing",
+    "javascript",
+    "reqres",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.5.3"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
